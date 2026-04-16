@@ -1,0 +1,6 @@
+# Copy to local.properties (gitignored) and fill in.
+# sdk.dir points at your Android SDK install.
+sdk.dir=/Users/you/Library/Android/sdk
+
+# Anthropic API key for VLM receipt parsing.
+CLAUDE_API_KEY=sk-ant-...

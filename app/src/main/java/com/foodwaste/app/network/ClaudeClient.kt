@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit
  */
 class ClaudeClient(
     private val apiKey: String = BuildConfig.CLAUDE_API_KEY,
-    private val model: String = "claude-sonnet-4-6"
+    private val model: String = "claude-haiku-4-5-20251001"
 ) {
     private val http = OkHttpClient.Builder()
         .callTimeout(60, TimeUnit.SECONDS)

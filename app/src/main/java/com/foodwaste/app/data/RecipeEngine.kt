@@ -21,10 +21,11 @@ class RecipeEngine(private val recipes: List<Recipe>) {
 
             for (ing in recipe.ingredients) {
                 val key = ing.lowercase()
-                val match = byName[key] ?: partialMatch(key, byName.keys)
-                if (match != null) {
-                    val item = byName[match]!!
-                    have += match
+                val matchKey: String? =
+                    if (byName.containsKey(key)) key else partialMatch(key, byName.keys)
+                if (matchKey != null) {
+                    val item = byName.getValue(matchKey)
+                    have += matchKey
                     val daysLeft = TimeUnit.MILLISECONDS.toDays(item.expiresAt - now)
                     // expiring soon => higher urgency; negative = already expired (very urgent)
                     urgency += 1.0 / max(1.0, (daysLeft + 1).toDouble())

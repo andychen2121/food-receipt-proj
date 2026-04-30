@@ -92,7 +92,9 @@ private fun Root(app: FoodWasteApplication) {
                 ScanScreen(vm, onSaved = { nav.navigate(Routes.INVENTORY) })
             }
             composable(Routes.RECIPES) {
-                val vm: RecipesViewModel = viewModel(factory = factory { RecipesViewModel(app.repo) })
+                val vm: RecipesViewModel = viewModel(
+                    factory = factory { RecipesViewModel(app.repo, app.recipeGenerator) }
+                )
                 RecipesScreen(vm)
             }
         }
